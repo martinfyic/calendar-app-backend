@@ -13,6 +13,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth.js'));
+app.use('/api/events', require('./routes/events.js'));
 
 app.listen(process.env.PORT, () => {
 	console.log(
