@@ -12,6 +12,11 @@ const postUser = async (req = request, res = response) => {
 			return res.status(400).json({
 				ok: false,
 				msg: 'The email is already registered',
+				method: req.method,
+				hostname: req.hostname,
+				originalUrl: req.originalUrl,
+				baseUrl: req.baseUrl,
+				path: req.path,
 			});
 		}
 
@@ -27,6 +32,11 @@ const postUser = async (req = request, res = response) => {
 		return res.status(201).json({
 			ok: true,
 			msg: 'User successfully registered',
+			method: req.method,
+			hostname: req.hostname,
+			originalUrl: req.originalUrl,
+			baseUrl: req.baseUrl,
+			path: req.path,
 			user: {
 				uid: user.id,
 				name: user.name,
@@ -38,6 +48,11 @@ const postUser = async (req = request, res = response) => {
 		return res.status(500).json({
 			ok: false,
 			msg: 'Internal error, talk to administrator',
+			method: req.method,
+			hostname: req.hostname,
+			originalUrl: req.originalUrl,
+			baseUrl: req.baseUrl,
+			path: req.path,
 		});
 	}
 };
@@ -52,6 +67,11 @@ const loginUser = async (req = request, res = response) => {
 			return res.status(400).json({
 				ok: false,
 				msg: 'Wrong username or password',
+				method: req.method,
+				hostname: req.hostname,
+				originalUrl: req.originalUrl,
+				baseUrl: req.baseUrl,
+				path: req.path,
 			});
 		}
 
@@ -61,6 +81,11 @@ const loginUser = async (req = request, res = response) => {
 			return res.status(400).json({
 				ok: false,
 				msg: 'Wrong username or password',
+				method: req.method,
+				hostname: req.hostname,
+				originalUrl: req.originalUrl,
+				baseUrl: req.baseUrl,
+				path: req.path,
 			});
 		}
 
@@ -69,6 +94,11 @@ const loginUser = async (req = request, res = response) => {
 		return res.status(200).json({
 			ok: true,
 			msg: 'User successfully login',
+			method: req.method,
+			hostname: req.hostname,
+			originalUrl: req.originalUrl,
+			baseUrl: req.baseUrl,
+			path: req.path,
 			user: {
 				uid: user.id,
 				name: user.name,
@@ -80,6 +110,11 @@ const loginUser = async (req = request, res = response) => {
 		return res.status(500).json({
 			ok: false,
 			msg: 'Internal error, talk to administrator',
+			method: req.method,
+			hostname: req.hostname,
+			originalUrl: req.originalUrl,
+			baseUrl: req.baseUrl,
+			path: req.path,
 		});
 	}
 };
@@ -92,6 +127,11 @@ const renewToken = async (req = request, res = response) => {
 	return res.json({
 		ok: true,
 		msg: 'Successfully generated token',
+		method: req.method,
+		hostname: req.hostname,
+		originalUrl: req.originalUrl,
+		baseUrl: req.baseUrl,
+		path: req.path,
 		token,
 	});
 };
