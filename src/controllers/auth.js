@@ -132,7 +132,11 @@ const renewToken = async (req = request, res = response) => {
 		originalUrl: req.originalUrl,
 		baseUrl: req.baseUrl,
 		path: req.path,
-		token,
+		user: {
+			uid,
+			name,
+			token,
+		},
 	});
 };
 
